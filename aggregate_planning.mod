@@ -14,7 +14,7 @@ var INTERNAL{i in TIME} integer >= 0;
 var OUTSRC{i in TIME} integer >= 0;
 
 
-param demand{i in TIME};
+
 
 param cm;
 param ci;
@@ -40,6 +40,11 @@ param end_backlog_max;
 param end_employees_min;
 param end_employees_max;
 
+param price_elasticity;
+param discount{i in TIME};
+param base_demand{i in TIME};
+param demand{i in TIME} integer := base_demand[i] + base_demand[i]*price_elasticity*discount[i];
+
 minimize cost: sum{i in TIME} (cw*EMPLOYEES[i] + ch*HIRED_EMPLOYEES[i] + cf*FIRED_EMPLOYEES[i] + co*OVERTIME[i] + ci*INVENTORY[i] + cb*BACKORDER[i] + cm*INTERNAL[i] + cc*OUTSRC[i]);
 
 s.t. cap_constraint{i in TIME}:L*INTERNAL[i] - H*EMPLOYEES[i] - OVERTIME[i] <= 0;
@@ -58,6 +63,11 @@ s.t. end_backorder_constraint{i in END}: BACKORDER[i] <=  end_backlog_max;
 solve;
 
 printf '\n Results #############\n';
+
+printf 'Total Cost : ';
+printf '%.2f', cost;
+printf '\n';
+
 printf 'Regular Labor Cost : ';
 printf '%.2f', sum{i in TIME} EMPLOYEES[i]*cw;
 printf '\n';

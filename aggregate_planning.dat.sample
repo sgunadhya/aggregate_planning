@@ -2,7 +2,7 @@ set TIME := 1 2 3 4 5 6 7 8 9 10 11 12;
 set TIME_SHIFT := 0  1 2 3 4 5 6 7 8 9 10 11 12;
 set INIT := 0;
 set END := 12;
-param demand :=
+param base_demand :=
 1   2800
 2   2800
 3   1000
@@ -20,11 +20,15 @@ param demand :=
 param cm := 75;
 param ci := 25;
 param cb := 50;
-
+/* Firing Cost */
 param cf := 3600;
+/* Hiring Cost */
 param ch := 1200;
+/* Employee Cost */
 param cw := 2400;
+/* Overtime Cost */
 param co := 25;
+/* Outsourcing cost */
 param cc := 175;
 
 param L := 4;
@@ -39,5 +43,21 @@ param end_inventory_min := 500;
 param end_backlog_max := 0;
 param end_employees_min := 30;
 param end_employees_max := 36;
+
+param price_elasticity := 0;
+
+param discount :=
+	1 0
+        2 0
+3 0
+4 0
+5 0
+6 0
+7 0
+8 0
+9 0
+10 0
+11 0
+12 0;
 
 end;
