@@ -100,4 +100,29 @@ printf 'Cost of Outsourcing: ';
 printf '%.2f', sum{i in TIME} OUTSRC[i]*cc;
 printf '\n';
 
+printf 'Number of Employees hired: ';
+printf '%d', sum{i in TIME} HIRED_EMPLOYEES[i];
+printf '\n';
+
+printf 'Number of Employees fired: ';
+printf '%d', sum{i in TIME} FIRED_EMPLOYEES[i];
+printf '\n';
+
+printf 'Number of Overtime: ';
+printf '%d', sum{i in TIME} OVERTIME[i];
+printf '\n';
+
+printf 'Number of Items Backlogged: ';
+printf '%d', sum{i in TIME} BACKORDER[i];
+printf '\n';
+
+
+printf 'Number of Items Produced: ';
+printf '%d', sum{i in TIME} INTERNAL[i];
+printf '\n';
+
+printf 'Number of Items Outsourced: ';
+printf '%d', sum{i in TIME} OUTSRC[i];
+printf '\n';
+
 printf '#############\n\n';
