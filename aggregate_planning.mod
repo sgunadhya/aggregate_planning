@@ -14,21 +14,29 @@ var INTERNAL{i in TIME} integer >= 0;
 var OUTSRC{i in TIME} integer >= 0;
 
 
-
-
+/* Cost of Materials */
 param cm;
+/* Cost of Holding Inventory */
 param ci;
+/* Cost if Backorders */
 param cb;
 
 param ct;
+/* Cost of Firing an Employee */
 param cf;
+/* Cost of Hiring and Training an employee */
 param ch;
+/* Cost of an Employee */
 param cw;
+/* Cost of Overtime */
 param co;
+/* Cost of Outsourcing */
 param cc;
-
+/* Number of hours for producing goods */
 param L;
+/* Number of hours worked by employee */
 param H;
+/* Maximum overtime hours */
 param M;
 
 param init_employees;
