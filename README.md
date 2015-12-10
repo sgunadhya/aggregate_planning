@@ -8,9 +8,12 @@ cost and other planning parameters like number of employees to hire, number of e
 processed in house, total orders outsourced, overtime etc.
 
 To solve the problem, you will need the `glpsol` command from the `glpk` toolkit.
+First, rename the `aggregate_planning.dat.sample`
+
+   `mv aggregate_planning.dat.sample aggregate_planning.dat`
+
 Run the command like so:
 
   `glpsol -m aggregate_planning.mod -d aggregate_planning.dat -o aggregate_planning_results.out`
 
-You can use the sample `aggregate_planning.dat.sample` file to run the command.
 
